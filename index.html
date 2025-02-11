@@ -47,6 +47,12 @@
       h1 {
         margin-top: 50px;
       }
+
+      input {
+        justify-self: center;
+        width: 100px;
+        margin: 5px;
+      }
     </style>
   </head>
   <body>
@@ -65,7 +71,7 @@
     <input type="time" name="simularhora" id="idsimularhora" />
     <input type="button" value="ENVIAR" onclick="clicar(), devTime()" />
     <script>
-    document.addEventListener("DOMContentLoaded", devTime);
+      document.addEventListener("DOMContentLoaded", devTime);
       var time = new Date();
       var txthour = document.querySelector("span#idhoras");
       var txtmin = document.querySelector("span#idmin");
@@ -93,6 +99,7 @@
         } else {
           document.body.style.background = "rgb(55, 69, 146)";
           img.style.backgroundImage = "url(image/noite.png)";
+          document.body.style.color = "white";
         }
       }
     </script>
