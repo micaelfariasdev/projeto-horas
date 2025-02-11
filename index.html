@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horas</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif,
+          sans-serif;
+        font-weight: normal;
+      }
+
+      body {
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        background: rgb(154, 164, 223);
+      }
+
+      main {
+        display: grid;
+        padding: 10px;
+        background: white;
+        height: 300px;
+        width: 300px;
+        border-radius: 30px;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.452);
+        margin: 10px;
+        justify-content: center;
+      }
+
+      div#idimg {
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.452);
+        height: 190px;
+        width: 190px;
+        background: black;
+        border-radius: 50%;
+        background-image: url(image/manha.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      h1 {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Horas do dia</h1>
+    <main>
+      <p>
+        Agora são
+        <span id="horacompleta"
+          ><span id="idhoras">12</span>:<span id="idmin">47</span></span
+        >
+      </p>
+      <div id="idimg"></div>
+    </main>
+    <p>© Micael Farias</p>
+    <p>Simule a hora</p>
+    <input type="time" name="simularhora" id="idsimularhora" />
+    <input type="button" value="ENVIAR" onclick="clicar(), devTime()" />
+    <script>
+    document.addEventListener("DOMContentLoaded", devTime);
+      var time = new Date();
+      var txthour = document.querySelector("span#idhoras");
+      var txtmin = document.querySelector("span#idmin");
+      function clicar() {
+        var simular = document.getElementById("idsimularhora");
+        var htmltime = document.getElementById("horacompleta");
+        var time = simular.value;
+        htmltime.innerHTML = time;
+        hora = String(simular.value).slice(0, 2);
+      }
+
+      var img = document.querySelector("div#idimg");
+      var hora = time.getHours();
+      var min = time.getMinutes();
+      txthour.innerHTML = Number(hora);
+      txtmin.innerHTML = String(min).padStart(2, "0");
+
+      function devTime() {
+        if (hora < 12) {
+          document.body.style.background = "rgb(154, 164, 223)";
+          img.style.backgroundImage = "url(image/manha.png)";
+        } else if (hora < 18) {
+          document.body.style.background = "rgb(221, 185, 24)";
+          img.style.backgroundImage = "url(image/tarde.png)";
+        } else {
+          document.body.style.background = "rgb(55, 69, 146)";
+          img.style.backgroundImage = "url(image/noite.png)";
+        }
+      }
+    </script>
+  </body>
+</html>
