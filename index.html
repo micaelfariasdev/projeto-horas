@@ -58,7 +58,7 @@
   <body>
     <h1>Horas do dia</h1>
     <main>
-      <p>
+      <p id="textdiv">
         Agora são
         <span id="horacompleta"
           ><span id="idhoras">12</span>:<span id="idmin">47</span></span
@@ -94,16 +94,15 @@
           document.body.style.background = "rgb(154, 164, 223)";
           img.style.backgroundImage = "url(image/manha.png)";
           document.body.style.color = "black";
-
         } else if (hora < 18) {
           document.body.style.background = "rgb(221, 185, 24)";
           img.style.backgroundImage = "url(image/tarde.png)";
           document.body.style.color = "black";
-
         } else {
           document.body.style.background = "rgb(55, 69, 146)";
           img.style.backgroundImage = "url(image/noite.png)";
           document.body.style.color = "white";
+          document.getElementById('textdiv').style.color = "black";
         }
       }
     </script>
